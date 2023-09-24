@@ -1,0 +1,26 @@
+{% extends "master.html" %}
+{% load static %}
+
+{% block page_title %}days{% endblock %}
+
+{% block header_refrences %}
+<link rel="stylesheet" href="{% static "web/web.css" %}">
+{% endblock %}
+
+
+{% block content %}
+
+{% include "web/includes/header.html" with active_page="days list" %}
+
+<ul>
+    {% for day in days %}
+    <li><a href="{% url 'days-of-week' day %}"> {{day | title}} </a></li>
+    {% endfor %}
+</ul>
+{% endblock %}
+
+{% block footer_refrences %}
+    <script>
+        console.log('hello')
+    </script>
+{% endblock %}
